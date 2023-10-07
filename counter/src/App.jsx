@@ -4,7 +4,11 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-  let [counter, setCounter] = useState(0); //usestate give value in array first is variable and second is hardcoded function
+  const [counter, setCounter] = useState(0); //usestate give value in array first is variable and second is hardcoded function
+
+  //Hooks:-we have button or some other companent on screen,when we click on that component or scroll on that component the way component behave on clicking or triggger something that is knows as hooks.
+
+  //
 
   //useState Hooks :- it is used to change the state that it propagate inside dom/UI
 
