@@ -1,5 +1,6 @@
 import React from "react";
 
+//Here function param takes props
 function card({ name, btnText = "visitMe" }) {
   console.log(name);
   return (
