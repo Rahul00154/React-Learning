@@ -5,6 +5,7 @@ function App() {
   const [numAllowed, setNumAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
+  const [isCopied, setIsCopied] = useState(false);
 
   const passwordRef = useRef(null);
 
@@ -25,6 +26,11 @@ function App() {
   }, [length, numAllowed, charAllowed, setPassword]); //it is used to cache(memoize) a function definition. it takes param as function and dependencies in array format
 
   const copyPasswordToClipboard = useCallback(() => {
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
+
     passwordRef.current?.select();
     passwordRef.current?.setSelectionRange(0, 20);
     passwordRef.current?.window.navigator.clipboard.writeText(password);
@@ -47,10 +53,12 @@ function App() {
           ref={passwordRef}
         />
         <button
-          className=" outline-none bg-blue-500 text-white px-3 py-0.5 shrink-0"
+          className={`outline-none px-3 py-0.5 ${
+            isCopied ? "bg-green-500" : "bg-blue-500"
+          } text-white shrink-0 hover:bg-blue-700`}
           onClick={copyPasswordToClipboard}
         >
-          Copy
+          {isCopied ? "Copied!" : "Copy"}
         </button>
       </div>
       <div className=" flex text-sm gap-x-2">
