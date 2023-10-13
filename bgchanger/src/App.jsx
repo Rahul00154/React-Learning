@@ -3,6 +3,8 @@ import { useState } from "react";
 
 function App() {
   const [color, setColor] = useState("olive"); //if we reload the page it resets the state and initial state has olive color so it gets to olive color
+
+  //onclick takes function to execute
   return (
     <div
       className="w-full h-screen duration-200"
