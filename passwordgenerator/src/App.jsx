@@ -12,7 +12,6 @@ function App() {
   const passGenerator = useCallback(() => {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-
     if (numAllowed) str += "0123456789";
     if (charAllowed) str += "@#$%^&*()_-";
 
