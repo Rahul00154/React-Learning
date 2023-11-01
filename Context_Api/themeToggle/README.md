@@ -1,8 +1,10 @@
-# React + Vite
+**Use Of Context API**  
+ <br>
+<br>
+In this project i use context api of react js and learn about how data pass from grand parent component to parent -> parent to child
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<ContextProvider value =""  >
+<App/>
+<User/>
+<Login/>
+</ContextProvider>
