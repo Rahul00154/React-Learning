@@ -1,14 +1,29 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
-  todos: [
-    {
-      id: 1,
-      text: "Hello",
-    },
-  ],
+  todos: [{ id: 1, text: "Hello world" }],
 };
 
+export const todoSlice = createSlice({
+  name: "todo",
+  initialState,
+  reducers: {
+    addTodo: (state, action) => {
+      const todo = {
+        id: nanoid(),
+        text: action.payload,
+      };
+      state.todos.push(todo);
+    },
+    removeTodo: (state, action) => {
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+    },
+  },
+});
+
+export const { addTodo, removeTodo } = todoSlice.actions;
+
+export default todoSlice.reducer;
 //properties and method came in reducer
 // in create we pass first name then initialstate
 //in context api we not wirte function definition while passing
@@ -26,26 +41,3 @@ const initialState = {
     }
   }
 */
-
-export const todoSlice = createSlice({
-  name: "todo",
-  initialState,
-  reducer: {
-    addTodo: (state, action) => {
-      const todo = {
-        id: nanoid(),
-        text: action.payload,
-      };
-      state.todos.push(todo);
-    },
-    removeTodo: (state, action) => {
-      state.todos.filter((todo) => todo.id !== action.payload);
-    },
-    // updateTodo:(state,action)=>{
-
-    // }
-  },
-});
-
-export const { addTodo, removeTodo } = todoSlice.actions;
-export default todoSlice.reducer;
