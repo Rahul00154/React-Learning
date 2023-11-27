@@ -1,0 +1,13 @@
+section {
+  max-width: 1000px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4rem auto 0;
+  display: flex;
+}
+
+button img {
+  max-width: 40px;
+}
+
+/*# sourceMappingURL=index.17d35d8d.css.map */
