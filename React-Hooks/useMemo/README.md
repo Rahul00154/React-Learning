@@ -5,3 +5,7 @@
 > It is allows us to remember a computed value between renders.
 
 > Memoization :- It is a technique to cache the previous result of a expensive calculation to avoid recalculating it every time when it is needed.
+
+# Advantage of using useMemo
+
+> Helps in cache a value to avoid unwanted costly recalculations.

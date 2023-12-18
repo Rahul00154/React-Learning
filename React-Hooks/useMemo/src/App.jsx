@@ -1,59 +1,54 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import "./App.css";
 
 function App() {
-  const [selectedNums, setSelectedNums] = useState(100);
+  const [nums, setNums] = useState([]);
+  const [count, setCount] = useState(1);
 
-  //code for calculates whether a given number is prime or not
-  function isPrime(n) {
-    const max = Math.ceil(Math.sqrt(n));
+  const increaseCounter = () => {
+    setCount(count + 1);
+  };
 
-    if (n === 2) {
-      return true;
-    }
+  const addRandom = () => {
+    let randNum = parseInt(Math.random() * 1000, 10);
+    setNums([...nums, randNum]);
+  };
 
-    for (let counter = 2; counter <= max; counter++) {
-      if (n % counter === 0) {
-        return false;
-      }
-    }
+  //Now here we use useMemo to memoize our result by using useMemo
 
-    return true;
-  }
+  // const magicNum = calculateMagicNumber(count);
 
-  //we Calculate all of the prime numbers between 0 and user's chosen number.
+  const magicNum = useMemo(() => calculateMagicNumber(count), [count]);
+  //useMemo takes two parameter 1st one is function and second one is function and scnd one is dependency array;
 
-  const allPrimes = [];
-
-  for (let i = 2; i < selectedNums; i++) {
-    if (isPrime(i)) {
-      allPrimes.push[i];
-    }
-  }
+  console.log("rendering....");
 
   return (
     <div className="App">
       <h1>UseMemo</h1>
-      <form>
-        <label htmlFor="num">Your number:</label>
-        <input
-          type="number"
-          value={selectedNums}
-          onChange={(event) => {
-            // To prevent computers from exploding,
-            // we'll max out at 100k
-            let num = Math.min(100_000, Number(event.target.value));
-
-            setSelectedNums(num);
-          }}
-        />
-      </form>
-      <p>
-        There are {allPrimes.length} prime(s) between 1 and {selectedNums}:{" "}
-        <span className="prime-list">{allPrimes.join(", ")}</span>
-      </p>
+      <div>
+        Counter: {count}|Magic number:{magicNum}
+        <button onClick={increaseCounter}>+</button>
+      </div>
+      <hr />
+      <div>
+        <ul>
+          {nums.map((num, i) => (
+            <li key={i}>{num}</li>
+          ))}
+        </ul>
+        <button onClick={addRandom}>Add Random</button>
+      </div>
     </div>
   );
+  function calculateMagicNumber(n) {
+    console.log("Costly calculation triggered.");
+    let num = 1;
+    for (let i = 0; i < n + 1000000000; i++) {
+      num += 123000;
+    }
+    return parseInt(num - num * 0.22, 10);
+  }
 }
 
 export default App;
