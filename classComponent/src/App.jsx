@@ -1,12 +1,11 @@
-import { useState, Component } from "react";
-import BrokenButton from "./BrokenButton";
-import PropChangeCounter from "./PropChangeCounter";
+import { Component } from 'react';
+import PropChangeCounter from './PropChangeCounter';
 // import Comp from "./Comp";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { email: "" };
+    this.state = { email: '' };
   }
 
   //it creates object through class

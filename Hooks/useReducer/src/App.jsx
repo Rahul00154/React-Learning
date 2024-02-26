@@ -1,14 +1,14 @@
-import "./App.css";
-import { useReducer } from "react";
+import './App.css';
+import { useReducer } from 'react';
 
 function App() {
   //Let convert this into useReducer code
   const reducerFunct = (count, action) => {
     switch (action.type) {
-      case "Increment": {
+      case 'Increment': {
         return count + 1;
       }
-      case "Decrement": {
+      case 'Decrement': {
         return count - 1;
       }
       default:
@@ -33,11 +33,11 @@ function App() {
     <>
       <div className="App">
         <h1>Learning UseReducer Hooks</h1>
-        <button onClick={() => dispatch({ type: "Increment" })}>
+        <button onClick={() => dispatch({ type: 'Increment' })}>
           Increment
         </button>
         {count}
-        <button onClick={() => dispatch({ type: "Decrement" })}>
+        <button onClick={() => dispatch({ type: 'Decrement' })}>
           Decrement
         </button>
       </div>

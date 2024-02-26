@@ -1,5 +1,4 @@
-import react from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from 'react-dom/client';
 
 let index = -1; //to keep the track of how usestate call
 const state = []; // to keep the reference of previous render
@@ -49,7 +48,7 @@ function App() {
   // const [isData, setIsData] = MyUseState(false);
 
   myUseEffect(() => {
-    console.log("Hello");
+    console.log('Hello');
 
     //jab jab component screen se hatega tab cleanup function call hoga
     return cleanUpFunction;
@@ -79,7 +78,7 @@ function App() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 function renderFromMyHook() {
   index = -1; //on chnanging state we also reset the indexes

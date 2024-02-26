@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-
-import "./App.css";
+import { useEffect, useRef, useState } from 'react';
+import './App.css';
 
 function App() {
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   //when we want to see render count
   // const [renderCount, setRenderCount] = useState(0);
   //Here it goes in infinite loop of rendering the webpage
@@ -14,7 +13,7 @@ function App() {
 
   // const inputRef = useRef();
 
-  const prevName = useRef("");
+  const prevName = useRef('');
 
   //useref return object and its current value is 0 like this{current:0}
 

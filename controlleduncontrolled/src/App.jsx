@@ -1,8 +1,6 @@
-import { useState } from "react";
-
-import "./App.css";
-import Controlled from "./Controlled";
-import UncontrolledComponent from "./UncontrolledComponent";
+import './App.css';
+import Controlled from './Controlled';
+import UncontrolledComponent from './UncontrolledComponent';
 
 function App() {
   return (
